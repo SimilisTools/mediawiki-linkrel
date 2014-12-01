@@ -56,14 +56,12 @@ class Linkrel {
 	
 		if ( ! empty( $offset ) && is_numeric( $num ) ) {
 			
-			$matches = preg_grep( "/($offset\=\d+)/", $url );
+			preg_match( "/($offset\=\d+)/", $url, $matches );
 			
 			// Continue here
 			if ( count($matches) > 0 ) {
-				
-				preg_replace ( "/\?$offset\=\d+/" , "", $url );
-				preg_replace ( "/\&$offset\=\d+/" , "", $url );
-
+				$url = preg_replace( "/\?".$offset."\=\d+/" , "", $url );
+				$url = preg_replace( "/\&".$offset."\=\d+/" , "", $url );
 			} 
 
 			if ( preg_match( "/\?/", $url  ) === 0 ) {
@@ -76,7 +74,10 @@ class Linkrel {
 
 		}
 
-		$out->addLink( $attrs );
+		if ( isset( $attrs['href'] ) && isset( $attrs['rel'] ) ) {
+			$out->addHeadItem( "<link rel=\"".$attrs['rel']."\" href=\"".$attrs['href']."\" />"."\n");
+
+		}
 		return true;
 	}
 
