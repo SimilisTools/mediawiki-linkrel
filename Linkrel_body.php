@@ -78,7 +78,7 @@ class Linkrel {
 			$out->addHeadItem( "<link rel=\"".$attrs['rel']."\" href=\"".$attrs['href']."\" />"."\n");
 
 		}
-		return true;
+		return "";
 	}
 
 }
