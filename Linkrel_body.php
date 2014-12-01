@@ -75,6 +75,8 @@ class Linkrel {
 		}
 
 		if ( isset( $attrs['href'] ) && isset( $attrs['rel'] ) ) {
+			// Final change & -> &amp;
+			$attrs['href'] = str_replace( "&", "&amp;", $attrs['href'] );
 			$out->addHeadItem( "<link rel=\"".$attrs['rel']."\" href=\"".$attrs['href']."\" />"."\n");
 
 		}
