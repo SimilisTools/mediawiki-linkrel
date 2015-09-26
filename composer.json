@@ -1,0 +1,25 @@
+{
+	"name": "mediawiki/linkrel",
+	"type": "mediawiki-extension",
+	"description": "Extension for adding custom link rel tags in the headers of wiki pages",
+	"keywords": [
+		"MediaWiki",
+		"Link",
+		"Header"
+	],
+	"homepage": "https://github.com/SimilisTools/mediawiki-linkrel",
+	"license": "GPL-3.0+",
+	"authors": [
+		{
+			"name": "Toni Hermoso Pulido",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"php": ">=5.3.0",
+		"composer/installers": "1.*,>=1.0.1"
+	},
+	"autoload": {
+		"files": ["Linkrel.php"]
+	}
+}
